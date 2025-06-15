@@ -39,6 +39,16 @@ This project implements an automated waste classification system that can identi
 MobileNetV2 (frozen) → GlobalAveragePooling2D → Dense(128, relu) → Dense(17, softmax)
 ```
 
+### Architecture Diagram
+```mermaid
+graph TD
+    A[Input Image<br/>224×224×3] --> B[MobileNetV2<br/>Pre-trained ImageNet<br/>Frozen Layers]
+    B --> C[GlobalAveragePooling2D<br/>Feature Extraction]
+    C --> D[Dense Layer<br/>128 neurons, ReLU]
+    D --> E[Output Layer<br/>17 classes, Softmax]
+    E --> F[Waste Category<br/>Prediction]
+```
+
 ### Model Configuration
 - **Optimizer**: Adam (learning_rate=0.0001)
 - **Loss Function**: Categorical Crossentropy
